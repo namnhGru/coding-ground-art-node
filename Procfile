@@ -1,1 +1,1 @@
-web: node server.bundle.js
+web: npx webpack; node dist/server.bundle.js
