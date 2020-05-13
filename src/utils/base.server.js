@@ -21,8 +21,9 @@ app.get("/posts", getAllPosts);
 export const start = async () => {
   try {
     await connectdb();
-    app.listen(SERVER_PORT, () => {
-      console.log(`REST API on ${SERVER_HOST}:${SERVER_PORT}`);
+    const port = process.env.PORT || SERVER_PORT;
+    app.listen(port, () => {
+      console.log(`REST API on ${SERVER_HOST}:${port}`);
     });
   } catch (e) {
     console.error(e);
