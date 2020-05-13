@@ -3,7 +3,7 @@ import { SERVER_PORT, SERVER_HOST } from "./base.config";
 import { json, urlencoded } from "body-parser";
 import express from "express";
 import { getAllPosts } from "../api/post.api";
-// import cors from "cors";
+import cors from "cors";
 // import cookieParser from "cookie-parser";
 
 const app = express();
@@ -15,6 +15,7 @@ app.use(urlencoded({ extended: true }));
 //   credentials: true,
 //   origin: "http://localhost:8080"
 // }))
+app.use(cors());
 
 app.get("/posts", getAllPosts);
 
