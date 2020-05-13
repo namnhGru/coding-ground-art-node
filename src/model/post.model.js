@@ -4,7 +4,7 @@ var postSchema = new Schema(
   {
     title: String,
     url: String,
-    tags: Array,
+    tags: [{ type: SchemaTypes.ObjectId, ref: "tag" }],
     content: String,
   },
   {
