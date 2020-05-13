@@ -1,1 +1,1 @@
-web: npx webpack; node dist/server.bundle.js
+web: export NODE_ENV=production; npx webpack; node dist/server.bundle.js
