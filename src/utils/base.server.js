@@ -2,7 +2,7 @@ import connectdb from "./base.db";
 import { SERVER_PORT, SERVER_HOST } from "./base.config";
 import { json, urlencoded } from "body-parser";
 import express from "express";
-import { getAllPosts } from "../api/post.api";
+import { getAllPosts, getSpecificPost } from "../api/post.api";
 import cors from "cors";
 // import cookieParser from "cookie-parser";
 
@@ -18,6 +18,7 @@ app.use(urlencoded({ extended: true }));
 app.use(cors());
 
 app.get("/posts", getAllPosts);
+app.post("/posts", getSpecificPost);
 
 export const start = async () => {
   try {
