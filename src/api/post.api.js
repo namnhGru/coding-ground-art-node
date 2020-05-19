@@ -5,6 +5,7 @@ import { DB_HOST, DB_PORT } from "../utils/base.config";
 export async function getSpecificPost(req, res) {
   try {
     console.log(`get data from ${DB_HOST}:${DB_PORT}`);
+    console.log(process.env.NODE_ENV);
     const post = await PostModel.findOne({ slug: req.body.slug })
       .populate({ path: "tags", model: TagModel })
       .exec();
