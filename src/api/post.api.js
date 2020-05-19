@@ -1,9 +1,10 @@
 import PostModel from "../model/post.model";
 import TagModel from "../model/tag.model";
+import { DB_HOST, DB_PORT } from "../utils/base.config";
 
 export async function getSpecificPost(req, res) {
   try {
-    console.log(req.body.slug);
+    console.log(`get data from ${DB_HOST}:${DB_PORT}`);
     const post = await PostModel.findOne({ slug: req.body.slug })
       .populate({ path: "tags", model: TagModel })
       .exec();
