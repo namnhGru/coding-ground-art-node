@@ -3,7 +3,8 @@ import TagModel from "../model/tag.model";
 
 export async function getSpecificPost(req, res) {
   try {
-    const post = await PostModel.findOne({ slug: req.slug })
+    console.log(req.body.slug);
+    const post = await PostModel.findOne({ slug: req.body.slug })
       .populate({ path: "tags", model: TagModel })
       .exec();
     res.status(200).json({ data: post });
